@@ -101,7 +101,7 @@ Then connect from the Rojo plugin in Studio. The place must be published, with *
 
 ## Roadmap
 
-- [ ] Data layer and profile template
+- [x] Data layer and profile template
 - [ ] Inventory service and public API
 - [ ] Shop buy and sell with full validation
 - [ ] Placeholder UI

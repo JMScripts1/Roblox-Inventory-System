@@ -49,15 +49,26 @@ It appears in the shop, the inventory, and tooltips with no other changes.
 Other server systems can read and change inventories directly:
 
 ```lua
-InventoryService.add(player, itemId, amount)
-InventoryService.remove(player, itemId, amount)
+InventoryService.add(player, itemId, amount)     -- false if it doesn't all fit; adds nothing
+InventoryService.remove(player, itemId, amount)  -- false if they don't have enough; removes nothing
 InventoryService.has(player, itemId, amount)
+InventoryService.count(player, itemId)
+InventoryService.equip(player, slot)
+InventoryService.unequip(player, equipSlot)      -- false if the inventory is full
 
 CurrencyService.add(player, currency, amount)
 CurrencyService.spend(player, currency, amount)
 ```
 
-A signal fires whenever a player equips or unequips an item, so a combat or stats system can react without polling.
+`add` and `remove` are all-or-nothing, so a failed call never leaves an inventory half-changed.
+
+A signal fires whenever a player equips or unequips an item, so a combat or stats system can react without polling:
+
+```lua
+InventoryService.EquippedChanged:Connect(function(player, equipSlot, itemId)
+	-- itemId is nil when the slot was emptied
+end)
+```
 
 ## Architecture
 
@@ -102,7 +113,7 @@ Then connect from the Rojo plugin in Studio. The place must be published, with *
 ## Roadmap
 
 - [x] Data layer and profile template
-- [ ] Inventory service and public API
+- [x] Inventory service and public API
 - [ ] Shop buy and sell with full validation
 - [ ] Placeholder UI
 - [ ] Edge cases: persistence, insufficient funds, full inventory, request spam, malformed requests

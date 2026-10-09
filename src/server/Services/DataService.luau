@@ -1,11 +1,13 @@
 --!strict
 local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 local ProfileStore = require(script.Parent.Parent.Packages.ProfileStore)
+local Types = require(ReplicatedStorage.Shared.Types)
 
 local PROFILE_TEMPLATE = {
-	Inventory = {},
-	Equipped = {},
+	Inventory = {} :: { [string]: Types.Slot },
+	Equipped = {} :: { [Types.EquipSlot]: Types.ItemId },
 	Currency = {
 		Coins = 1000,
 		Gems = 100,
@@ -64,7 +66,7 @@ end
 Players.PlayerAdded:Connect(onPlayerAdded)
 Players.PlayerRemoving:Connect(onPlayerRemoving)
 
-for _, plr in ipairs(Players:GetPlayers()) do
+for _, plr in Players:GetPlayers() do
 	task.spawn(onPlayerAdded, plr)
 end
 

@@ -118,3 +118,13 @@ Then connect from the Rojo plugin in Studio. The place must be published, with *
 - [ ] Placeholder UI
 - [ ] Edge cases: persistence, insufficient funds, full inventory, request spam, malformed requests
 - [ ] Final UI with themed styling, transitions, tooltips, and drag and drop
+
+## License
+
+MIT licensed, so it's free to use in any game, free or paid. See [LICENSE](LICENSE).
+
+Credit is appreciated but not required: `Systems by Ruha.luau (github.com/JMScripts1)`
+
+The code comes as is, with no warranty. The LICENSE file is the official copy. Commissioned work follows the commission terms instead.
+
+Want it customized for your game? See [commissions](https://jmscripts1.github.io/commissions.html).

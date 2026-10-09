@@ -1,4 +1,6 @@
 --!strict
+-- Inventory & Shop System by Ruha.luau (github.com/JMScripts1)
+-- MIT licensed, see LICENSE. Feel free to remove this header.
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 local Config = require(ReplicatedStorage.Shared.Config)

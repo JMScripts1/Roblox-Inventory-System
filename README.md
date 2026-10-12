@@ -56,8 +56,9 @@ InventoryService.count(player, itemId)
 InventoryService.equip(player, slot)
 InventoryService.unequip(player, equipSlot)      -- false if the inventory is full
 
+CurrencyService.get(player, currency)
 CurrencyService.add(player, currency, amount)
-CurrencyService.spend(player, currency, amount)
+CurrencyService.spend(player, currency, amount)  -- false if they can't afford it; takes nothing
 ```
 
 `add` and `remove` are all-or-nothing, so a failed call never leaves an inventory half-changed.
@@ -114,7 +115,7 @@ Then connect from the Rojo plugin in Studio. The place must be published, with *
 
 - [x] Data layer and profile template
 - [x] Inventory service and public API
-- [ ] Shop buy and sell with full validation
+- [x] Shop buy and sell with full validation
 - [ ] Placeholder UI
 - [ ] Edge cases: persistence, insufficient funds, full inventory, request spam, malformed requests
 - [ ] Final UI with themed styling, transitions, tooltips, and drag and drop

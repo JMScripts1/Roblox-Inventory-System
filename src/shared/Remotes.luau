@@ -17,6 +17,7 @@ local function getRemote(name: string): RemoteEvent
 		return script:WaitForChild(name) :: RemoteEvent
 	end
 end
+
 Remotes.PurchaseItem = getRemote("PurchaseItem")
 Remotes.SellItem = getRemote("SellItem")
 

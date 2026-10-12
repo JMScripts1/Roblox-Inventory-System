@@ -58,11 +58,11 @@ end
 
 function DataService.get(plr: Player): typeof(PROFILE_TEMPLATE)?
 	local profile = _profiles[plr]
-	if profile then
-		return profile.Data
-	else
+	if not profile then
 		return nil
 	end
+
+	return profile.Data
 end
 
 Players.PlayerAdded:Connect(onPlayerAdded)

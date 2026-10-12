@@ -2,10 +2,12 @@
 -- Inventory & Shop System by Ruha.luau (github.com/JMScripts1)
 -- MIT licensed, see LICENSE. Feel free to remove this header.
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local CurrencyService = require(script.Parent.CurrencyService)
-local ItemDefinitions = require(ReplicatedStorage.Shared.ItemDefinitions)
-local InventoryService = require(script.Parent.InventoryService)
+
 local Config = require(ReplicatedStorage.Shared.Config)
+local ItemDefinitions = require(ReplicatedStorage.Shared.ItemDefinitions)
+local CurrencyService = require(script.Parent.CurrencyService)
+local InventoryService = require(script.Parent.InventoryService)
+
 local ShopService = {}
 
 function ShopService.purchase(plr: Player, itemId: string): boolean

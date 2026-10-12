@@ -44,4 +44,5 @@ function CurrencyService.spend(plr: Player, currency: Types.Currency, amount: nu
 	data.Currency[currency] -= amount
 	return true
 end
+
 return CurrencyService

@@ -55,6 +55,7 @@ function InventoryService.add(plr: Player, itemId: string, amount: number): bool
 
 	local inv = data.Inventory
 	local def = ItemDefinitions[itemId]
+	assert(def, `unknown item id "{itemId}"`)
 	if freeSpace(inv, itemId, def.maxStack) < amount then
 		return false
 	end
@@ -126,8 +127,9 @@ function InventoryService.equip(plr: Player, slotKey: string): boolean
 		return false
 	end
 
+	-- no def means the item was removed from ItemDefinitions after the player got it
 	local def = ItemDefinitions[slot.itemId]
-	if def.kind == "Consumable" then
+	if not def or def.kind == "Consumable" then
 		return false
 	end
 

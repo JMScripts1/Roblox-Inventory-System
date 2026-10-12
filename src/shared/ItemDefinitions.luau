@@ -93,6 +93,14 @@ local ItemDefinitions: { [Types.ItemId]: Types.ItemDef } = {
 	},
 }
 
+-- a bad definition should stop the server on startup, not fail halfway through a purchase
+for itemId, def in ItemDefinitions do
+	assert(def.price >= 1 and def.price % 1 == 0, `{itemId}: price must be a positive integer`)
+	assert(def.maxStack >= 1 and def.maxStack % 1 == 0, `{itemId}: maxStack must be a positive integer`)
+	-- equipping moves the whole slot, so a stack of equipment would lose the rest
+	assert(def.kind == "Consumable" or def.maxStack == 1, `{itemId}: equipment must have maxStack 1`)
+end
+
 -- freeze is shallow, so lock each def and its stats too
 for _, def in ItemDefinitions do
 	table.freeze(def)

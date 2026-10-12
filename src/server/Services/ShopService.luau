@@ -17,9 +17,6 @@ function ShopService.purchase(plr: Player, itemId: string): boolean
 	if not def or CurrencyService.get(plr, def.currency) < def.price then
 		return false
 	end
-	if def.price < 1 then
-		return false
-	end
 
 	if not InventoryService.add(plr, itemId, 1) then
 		return false

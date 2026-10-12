@@ -4,6 +4,7 @@
 
 local Config = {
 	MAX_SLOTS = 24,
+	SELL_RATIO = 0.5,
 }
 
 return table.freeze(Config)

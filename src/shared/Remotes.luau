@@ -20,5 +20,6 @@ end
 
 Remotes.PurchaseItem = getRemote("PurchaseItem")
 Remotes.SellItem = getRemote("SellItem")
+Remotes.InventoryUpdate = getRemote("InventoryUpdate")
 
 return Remotes
